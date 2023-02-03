@@ -1,14 +1,14 @@
-package comkata.bankaccount.service;
+package comkata.bankaccount.application.service;
 
-import comkata.bankaccount.exceptions.AccountNotFoundException;
-import comkata.bankaccount.exceptions.InvalidAmountException;
-import comkata.bankaccount.model.dto.TransactionRequest;
-import comkata.bankaccount.model.entity.Account;
-import comkata.bankaccount.model.enums.OperationType;
-import comkata.bankaccount.model.entity.Transaction;
-import comkata.bankaccount.repository.AccountRepository;
-import comkata.bankaccount.repository.TransactionRepository;
-import comkata.bankaccount.service.impl.AccountServiceImpl;
+import comkata.bankaccount.application.exceptions.AccountNotFoundException;
+import comkata.bankaccount.application.exceptions.InvalidAmountException;
+import comkata.bankaccount.infrastructure.dto.TransactionRequest;
+import comkata.bankaccount.domain.entity.Account;
+import comkata.bankaccount.domain.enums.OperationType;
+import comkata.bankaccount.domain.entity.Transaction;
+import comkata.bankaccount.infrastructure.repository.AccountRepository;
+import comkata.bankaccount.infrastructure.repository.TransactionRepository;
+import comkata.bankaccount.application.service.impl.AccountServiceImpl;
 import comkata.bankaccount.utils.TestDataBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,6 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
@@ -56,7 +57,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void testWithdrawal() throws InvalidAmountException, AccountNotFoundException {
+    public void shouldWithdrawWhenAccountBalanceGreaterOrEqualAmountRequested() throws InvalidAmountException, AccountNotFoundException {
         // Arrange
         TransactionRequest transactionRequest =
                 TestDataBuilder.buildTransactionRequest(1L, BigDecimal.valueOf(100));
@@ -71,6 +72,20 @@ public class AccountServiceTest {
         verify(transactionRepository, times(1)).save(any(Transaction.class));
         verify(accountRepository, times(1)).save(any(Account.class));
     }
+
+    @Test
+    public void shouldThrowInvalidAmountExceptionWhenWithdrawalAndInsufficientBalance() {
+        // Arrange
+        TransactionRequest transactionRequest =
+                TestDataBuilder.buildTransactionRequest(1L, BigDecimal.valueOf(500));
+        when(accountRepository.findById(anyLong()))
+                .thenReturn(Optional.of(new Account(1L, new ArrayList<>(), BigDecimal.valueOf(100))));
+
+        // Act And Assert
+        assertThatThrownBy(() -> accountService.withdraw(transactionRequest))
+                .isInstanceOf(InvalidAmountException.class);
+    }
+
 
     @Test
     public void testGetStatement() throws AccountNotFoundException {

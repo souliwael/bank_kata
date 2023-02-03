@@ -1,7 +1,7 @@
-package comkata.bankaccount.model.entity;
+package comkata.bankaccount.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import comkata.bankaccount.model.enums.OperationType;
+import comkata.bankaccount.domain.enums.OperationType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

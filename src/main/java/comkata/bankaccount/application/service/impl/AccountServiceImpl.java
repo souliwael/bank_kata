@@ -1,14 +1,14 @@
-package comkata.bankaccount.service.impl;
+package comkata.bankaccount.application.service.impl;
 
-import comkata.bankaccount.exceptions.AccountNotFoundException;
-import comkata.bankaccount.exceptions.InvalidAmountException;
-import comkata.bankaccount.model.dto.TransactionRequest;
-import comkata.bankaccount.model.entity.Account;
-import comkata.bankaccount.model.enums.OperationType;
-import comkata.bankaccount.model.entity.Transaction;
-import comkata.bankaccount.repository.AccountRepository;
-import comkata.bankaccount.repository.TransactionRepository;
-import comkata.bankaccount.service.AccountService;
+import comkata.bankaccount.application.exceptions.AccountNotFoundException;
+import comkata.bankaccount.application.exceptions.InvalidAmountException;
+import comkata.bankaccount.infrastructure.dto.TransactionRequest;
+import comkata.bankaccount.domain.entity.Account;
+import comkata.bankaccount.domain.enums.OperationType;
+import comkata.bankaccount.domain.entity.Transaction;
+import comkata.bankaccount.infrastructure.repository.AccountRepository;
+import comkata.bankaccount.infrastructure.repository.TransactionRepository;
+import comkata.bankaccount.application.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

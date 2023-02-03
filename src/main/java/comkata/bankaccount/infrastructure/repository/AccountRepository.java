@@ -1,6 +1,6 @@
-package comkata.bankaccount.repository;
+package comkata.bankaccount.infrastructure.repository;
 
-import comkata.bankaccount.model.entity.Account;
+import comkata.bankaccount.domain.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

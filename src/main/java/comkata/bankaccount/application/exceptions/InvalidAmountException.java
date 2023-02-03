@@ -1,4 +1,4 @@
-package comkata.bankaccount.exceptions;
+package comkata.bankaccount.application.exceptions;
 
 public class InvalidAmountException extends Exception{
     public InvalidAmountException(String message){

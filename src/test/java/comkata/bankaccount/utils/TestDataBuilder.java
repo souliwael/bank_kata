@@ -4,8 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import comkata.bankaccount.model.dto.TransactionRequest;
-import comkata.bankaccount.model.entity.Account;
+import comkata.bankaccount.infrastructure.dto.TransactionRequest;
 import lombok.experimental.UtilityClass;
 
 import java.math.BigDecimal;

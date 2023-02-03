@@ -1,11 +1,11 @@
-package comkata.bankaccount.controller;
+package comkata.bankaccount.infrastructure.controller;
 
-import comkata.bankaccount.exceptions.AccountNotFoundException;
-import comkata.bankaccount.exceptions.InvalidAmountException;
-import comkata.bankaccount.model.dto.TransactionRequest;
-import comkata.bankaccount.model.entity.Account;
-import comkata.bankaccount.model.entity.Transaction;
-import comkata.bankaccount.service.AccountService;
+import comkata.bankaccount.application.exceptions.AccountNotFoundException;
+import comkata.bankaccount.application.exceptions.InvalidAmountException;
+import comkata.bankaccount.infrastructure.dto.TransactionRequest;
+import comkata.bankaccount.domain.entity.Account;
+import comkata.bankaccount.domain.entity.Transaction;
+import comkata.bankaccount.application.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

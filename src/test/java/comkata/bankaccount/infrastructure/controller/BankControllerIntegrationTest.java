@@ -1,6 +1,6 @@
-package comkata.bankaccount.controller;
+package comkata.bankaccount.infrastructure.controller;
 
-import comkata.bankaccount.model.enums.OperationType;
+import comkata.bankaccount.domain.enums.OperationType;
 import comkata.bankaccount.utils.TestDataBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

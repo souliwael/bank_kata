@@ -1,4 +1,4 @@
-package comkata.bankaccount.model.dto;
+package comkata.bankaccount.infrastructure.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package comkata.bankaccount.model.enums;
+package comkata.bankaccount.domain.enums;
 
 public enum OperationType {
     DEPOSIT("DEPOSIT"),

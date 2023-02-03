@@ -1,5 +1,7 @@
-package comkata.bankaccount.exceptions;
+package comkata.bankaccount.infrastructure.controlleradvice;
 
+import comkata.bankaccount.application.exceptions.AccountNotFoundException;
+import comkata.bankaccount.application.exceptions.InvalidAmountException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

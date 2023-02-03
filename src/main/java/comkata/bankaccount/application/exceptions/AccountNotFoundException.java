@@ -1,4 +1,4 @@
-package comkata.bankaccount.exceptions;
+package comkata.bankaccount.application.exceptions;
 
 public class AccountNotFoundException extends Exception {
     public AccountNotFoundException(String message){
